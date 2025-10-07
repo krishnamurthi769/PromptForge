@@ -29,6 +29,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         originalPrompt: evaluation.originalPrompt,
         improvedPrompt: evaluation.improvedPrompt,
         analysis: JSON.stringify(evaluation.analysis),
+        suggestions: JSON.stringify(evaluation.suggestions),
         answer,
         sources: JSON.stringify(searchResults),
       });
@@ -84,6 +85,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         originalPrompt: evaluation.originalPrompt,
         improvedPrompt: evaluation.improvedPrompt,
         analysis: evaluation.analysis ? JSON.parse(evaluation.analysis) : null,
+        suggestions: evaluation.suggestions ? JSON.parse(evaluation.suggestions) : [],
         answer: evaluation.answer,
         searchResults: evaluation.sources ? JSON.parse(evaluation.sources) : [],
         createdAt: evaluation.createdAt,

@@ -24,6 +24,7 @@ export const evaluations = pgTable("evaluations", {
   originalPrompt: text("original_prompt"),
   improvedPrompt: text("improved_prompt"),
   analysis: text("analysis"),
+  suggestions: text("suggestions"),
   answer: text("answer"),
   sources: text("sources"),
   createdAt: timestamp("created_at").defaultNow().notNull(),

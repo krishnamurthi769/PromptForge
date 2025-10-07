@@ -46,6 +46,7 @@ export class MemStorage implements IStorage {
       originalPrompt: insertEvaluation.originalPrompt || null,
       improvedPrompt: insertEvaluation.improvedPrompt || null,
       analysis: insertEvaluation.analysis || null,
+      suggestions: insertEvaluation.suggestions || null,
       answer: insertEvaluation.answer || null,
       sources: insertEvaluation.sources || null,
       createdAt: new Date(),

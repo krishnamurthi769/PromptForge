@@ -79,18 +79,8 @@ export default function AppPage() {
 
   const handleSelectHistory = async (id: string) => {
     try {
-      const data = await fetch(`/api/evaluations/${id}`).then((res) => res.json());
-      
-      // Parse the analysis if it's a string
-      const parsedAnalysis = typeof data.analysis === 'string' 
-        ? JSON.parse(data.analysis) 
-        : data.analysis;
-      
-      setCurrentEvaluation({
-        ...data,
-        analysis: parsedAnalysis,
-        suggestions: parsedAnalysis.suggestions || [],
-      });
+      const data: EvaluationResult = await fetch(`/api/evaluations/${id}`).then((res) => res.json());
+      setCurrentEvaluation(data);
     } catch (error) {
       toast({
         title: "Error",
