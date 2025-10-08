@@ -68,8 +68,8 @@ app.use((req, res, next) => {
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || '5000', 10);
   
-  // Windows fix: use 'localhost' instead of '0.0.0.0'
-  server.listen(port, 'localhost', () => {
+  // Listen on 0.0.0.0 instead of localhost to make the server accessible from outside
+  server.listen(port, '0.0.0.0', () => {
     log(`serving on port ${port}`);
   });
 })();
